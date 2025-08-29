@@ -1,0 +1,110 @@
+extends CanvasLayer
+
+@onready var vidas_counter: Label = $"vidas counter/Label"
+@onready var coins_counter: Label = $"monedas counter/Label2"
+@onready var node_vidas: Node2D = $"vidas counter"
+@onready var node_monedas: Node2D = $"monedas counter"
+@onready var animation_player: AnimationPlayer = $AnimationPlayer_vidas
+@onready var animation_player2: AnimationPlayer = $AnimationPlayer_coins
+@onready var bolso: AnimationPlayer = $"monedas counter/coin/AnimationPlayer_coin"
+@onready var cine: AnimationPlayer = $"modo cine/AnimationPlayer_cine"
+
+var vida_anterior: int = Global_cosas.vidas
+var coin_anterior: int = Global_cosas.coin
+var coin_timer: Timer = Timer.new()
+var esperando_entrada: bool = false
+var coin_cambios: int = 0  # Contador de cambios en la moneda
+var estado_anterior: bool = false
+
+func _ready() -> void:
+	vidas_counter.text = str(Global_cosas.vidas)
+	coins_counter.text = str(Global_cosas.coin)
+	cine.play("idle")
+	estado_anterior = Global_cosas.cine
+
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
+
+	coin_timer.wait_time = 2.0
+	coin_timer.one_shot = true
+	coin_timer.timeout.connect(_on_coin_timer_timeout)
+	add_child(coin_timer)
+
+	animation_player2.animation_finished.connect(_on_entrada_terminada)
+	bolso.animation_finished.connect(_on_collect_terminado)
+
+# ------------------------------
+# Función para reproducir animación sin cortar
+# ------------------------------
+func play_anim_smooth(anim_player: AnimationPlayer, anim_name: String) -> void:
+	if anim_player.is_playing():
+		var t_actual = anim_player.current_animation_position
+		anim_player.play(anim_name)
+		anim_player.seek(t_actual, true) # true = mezcla con la posición actual
+	else:
+		anim_player.play(anim_name)
+
+# ------------------------------
+# Process
+# ------------------------------
+func _process(_delta: float) -> void:
+	@warning_ignore("untyped_declaration")
+	var estado_actual = Global_cosas.cine
+	if estado_actual != estado_anterior:
+		cine.play("entrada" if estado_actual else "salida")
+		estado_anterior = estado_actual
+
+	# Cambios en vidas
+	if Global_cosas.vidas != vida_anterior:
+		vida_anterior = Global_cosas.vidas
+		vidas_counter.text = str(Global_cosas.vidas)
+		play_anim_smooth(animation_player, "entrada")
+		await animation_player.animation_finished
+		await get_tree().create_timer(1.0).timeout
+		play_anim_smooth(animation_player, "salida")
+
+	# Cambios en monedas
+	if Global_cosas.coin != coin_anterior:
+		var diferencia: int = abs(Global_cosas.coin - coin_anterior)
+		coin_cambios += diferencia
+		coins_counter.text = str(Global_cosas.coin)
+		coin_anterior = Global_cosas.coin
+
+		if coin_timer.is_stopped():
+			esperando_entrada = true
+			play_anim_smooth(animation_player2, "entrada")
+		else:
+			_reproducir_collect()
+		
+		coin_timer.start()
+
+# ------------------------------
+# Señales y collect
+# ------------------------------
+func _on_entrada_terminada(anim_name: String) -> void:
+	if anim_name == "entrada" and esperando_entrada:
+		_reproducir_collect()
+		esperando_entrada = false
+
+func _reproducir_collect() -> void:
+	if coin_cambios > 0:
+		bolso.play("collect")
+
+func _on_collect_terminado(anim_name: String) -> void:
+	if anim_name == "collect" and coin_cambios > 0:
+		coin_cambios -= 1
+		if coin_cambios > 0:
+			bolso.play("collect")
+
+func _on_coin_timer_timeout() -> void:
+	play_anim_smooth(animation_player2, "salida")
+
+# ------------------------------
+# Entradas manuales
+# ------------------------------
+func entrada() -> void:
+	play_anim_smooth(animation_player, "entrada")
+	play_anim_smooth(animation_player2, "entrada")
+
+func salida() -> void:
+	play_anim_smooth(animation_player, "salida")
+	play_anim_smooth(animation_player2, "salida")
