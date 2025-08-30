@@ -18,5 +18,8 @@ mesh = SubResource("BoxMesh_d1ytv")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_m32vk")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_uahsp")]
+[node name="Player" parent="." instance=ExtResource("1_uahsp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.937786, 1.04336, 1.45386)
+
+[node name="LightmapProbe" type="LightmapProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02205, 3.7304, 1.31658)

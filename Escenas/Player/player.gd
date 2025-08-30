@@ -14,7 +14,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		# Rotación horizontal al cuerpo (yaw)
 		rotation_y -= event.relative.x * MOUSE_SENSITIVITY
 		rotation_degrees.y = rad_to_deg(rotation_y)
@@ -22,6 +22,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		# Rotación vertical a la cámara (pitch)
 		rotation_x = clamp(rotation_x - event.relative.y * MOUSE_SENSITIVITY, deg_to_rad(-80), deg_to_rad(80))
 		camera.rotation.x = rotation_x
+
+	# Liberar mouse con Escape
+	if event.is_action_pressed("ui_cancel"): # Escape por defecto es ui_cancel
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta: float) -> void:
 	# Gravedad
