@@ -21,5 +21,5 @@ shape = SubResource("ConvexPolygonShape3D_m32vk")
 [node name="Player" parent="." instance=ExtResource("1_uahsp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.937786, 1.04336, 1.45386)
 
-[node name="LightmapProbe" type="LightmapProbe" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02205, 3.7304, 1.31658)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.176861, 0.984236, 0, -0.984236, 0.176861, 0, 3.189, 0)
