@@ -2,12 +2,18 @@ extends CanvasLayer
 
 @onready var panel: Control = $Control
 @onready var fondo: ColorRect = $ColorRect
+@onready var bg: ColorRect = $algo
+@onready var icono: Sprite2D = $algo/pausa
 var tween: Tween
 
 func _ready():
 	panel.visible = false
 	fondo.visible = true
 	fondo.color.a = 0.0
+	bg.visible = true
+	bg.color.a = 0.0
+	icono.visible = false
+	
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"): 
@@ -18,12 +24,16 @@ func toggle_pause():
 		# Quitar pausa
 		get_tree().paused = false
 		panel.visible = false
+		bg.visible = false
+		icono.visible = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		fade_to(0.0)
 	else:
 		# Activar pausa
 		get_tree().paused = true
 		panel.visible = true
+		bg.visible = true
+		icono.visible = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		fade_to(0.5)
 
@@ -33,6 +43,7 @@ func fade_to(alpha: float):
 	tween = create_tween()
 	tween.set_process_mode(Tween.TweenProcessMode.TWEEN_PROCESS_IDLE)
 	tween.tween_property(fondo, "color:a", alpha, 0.3)
+	tween.tween_property(bg, "color:a", alpha, 0.6)
 
 # Función conectada al botón "Continuar"
 func _on_BotonContinuar_pressed():

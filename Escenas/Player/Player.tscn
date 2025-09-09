@@ -52,4 +52,4 @@ text = "."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PauseMenu" parent="." instance=ExtResource("3_ek8r7")]
+[node name="PauseMenu" parent="Camera3D" instance=ExtResource("3_ek8r7")]

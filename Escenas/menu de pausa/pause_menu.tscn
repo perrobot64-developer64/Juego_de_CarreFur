@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://de7xi50jaqjsj"]
+[gd_scene load_steps=17 format=3 uid="uid://de7xi50jaqjsj"]
 
 [ext_resource type="Script" uid="uid://biqgl5ldfqkqx" path="res://Escenas/menu de pausa/PauseMenu.gd" id="1_gcwwy"]
+[ext_resource type="Texture2D" uid="uid://5bevbq3oaewa" path="res://Escenas/menu de pausa/pausa.png" id="2_6xgry"]
 [ext_resource type="FontFile" uid="uid://jibbcoem3h8d" path="res://Assets/Fonts/easvhs.ttf" id="2_541fu"]
 [ext_resource type="Script" uid="uid://c2g78xv23m1vw" path="res://Escenas/menu de pausa/control.gd" id="2_bbyq6"]
 
@@ -38,6 +39,19 @@ offset_right = 1155.0
 offset_bottom = 650.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="algo" type="ColorRect" parent="."]
+offset_left = 447.0
+offset_top = -4.0
+offset_right = 704.0
+offset_bottom = 650.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="pausa" type="Sprite2D" parent="algo"]
+position = Vector2(128, 130)
+scale = Vector2(0.321591, 0.321591)
+texture = ExtResource("2_6xgry")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
