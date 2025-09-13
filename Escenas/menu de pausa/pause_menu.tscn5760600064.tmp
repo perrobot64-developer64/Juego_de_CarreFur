@@ -156,7 +156,7 @@ motion_mirroring = Vector2(0, 1447)
 offset_left = 447.0
 offset_top = -4.0
 offset_right = 704.0
-offset_bottom = 1443.0
+offset_bottom = 650.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
