@@ -7,6 +7,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_wllh4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_okrv5"]
+height = 3.73005
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qk22e"]
 shader = ExtResource("2_qk22e")
@@ -29,13 +30,15 @@ shader_parameter/viewport_size_override = Vector2(0, 0)
 script = ExtResource("1_okrv5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00619507, 0.626944, -0.0494537)
 mesh = SubResource("CapsuleMesh_wllh4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50174, 0)
 shape = SubResource("CapsuleShape3D_okrv5")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55421, -0.288248)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.20829, -0.288248)
 
 [node name="HUD" type="CanvasLayer" parent="Camera3D"]
 
