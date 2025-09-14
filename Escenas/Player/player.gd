@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
+const SPEED = 7.0
 
 @onready var camera: Camera3D = $Camera3D
 
