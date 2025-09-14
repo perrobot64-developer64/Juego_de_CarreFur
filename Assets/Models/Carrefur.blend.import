@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d2mwehqfmjg3"
-path="res://.godot/imported/Sin_nombre.blend-8e6a84181bb4bb32f7c0b363403435d0.scn"
+path="res://.godot/imported/Carrefur.blend-602e5fa3176b9db2eea8a95a6bdff055.scn"
 
 [deps]
 
-source_file="res://Escenas/Sin_nombre.blend"
-dest_files=["res://.godot/imported/Sin_nombre.blend-8e6a84181bb4bb32f7c0b363403435d0.scn"]
+source_file="res://Assets/Models/Carrefur.blend"
+dest_files=["res://.godot/imported/Carrefur.blend-602e5fa3176b9db2eea8a95a6bdff055.scn"]
 
 [params]
 

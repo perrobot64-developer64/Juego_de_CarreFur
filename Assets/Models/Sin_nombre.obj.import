@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://b0q1620s5blbn"
-path="res://.godot/imported/Sin_nombre.obj-89255d8e978c87f4c16b6472ff6c3ca9.mesh"
+path="res://.godot/imported/Sin_nombre.obj-3b1fe5d270dcb0263cce4e74db27fbb8.mesh"
 
 [deps]
 
-files=["res://.godot/imported/Sin_nombre.obj-89255d8e978c87f4c16b6472ff6c3ca9.mesh"]
+files=["res://.godot/imported/Sin_nombre.obj-3b1fe5d270dcb0263cce4e74db27fbb8.mesh"]
 
-source_file="res://Escenas/Sin_nombre.obj"
-dest_files=["res://.godot/imported/Sin_nombre.obj-89255d8e978c87f4c16b6472ff6c3ca9.mesh", "res://.godot/imported/Sin_nombre.obj-89255d8e978c87f4c16b6472ff6c3ca9.mesh"]
+source_file="res://Assets/Models/Sin_nombre.obj"
+dest_files=["res://.godot/imported/Sin_nombre.obj-3b1fe5d270dcb0263cce4e74db27fbb8.mesh", "res://.godot/imported/Sin_nombre.obj-3b1fe5d270dcb0263cce4e74db27fbb8.mesh"]
 
 [params]
 
