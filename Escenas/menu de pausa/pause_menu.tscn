@@ -1,0 +1,176 @@
+[gd_scene load_steps=19 format=3 uid="uid://de7xi50jaqjsj"]
+
+[ext_resource type="Script" uid="uid://biqgl5ldfqkqx" path="res://Escenas/menu de pausa/PauseMenu.gd" id="1_gcwwy"]
+[ext_resource type="Texture2D" uid="uid://5bevbq3oaewa" path="res://Escenas/menu de pausa/pausa.png" id="2_6xgry"]
+[ext_resource type="FontFile" uid="uid://jibbcoem3h8d" path="res://Assets/Fonts/easvhs.ttf" id="2_541fu"]
+[ext_resource type="Script" uid="uid://c2g78xv23m1vw" path="res://Escenas/menu de pausa/control.gd" id="2_bbyq6"]
+[ext_resource type="Script" uid="uid://dwbfs2h5t17ul" path="res://Escenas/menu de pausa/parallax_background.gd" id="5_1kxdp"]
+[ext_resource type="Texture2D" uid="uid://d15swfhyqq8re" path="res://Escenas/menu de pausa/BG.png" id="5_ntp70"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ntp70"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bbyq6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6xgry"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_541fu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1kxdp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bjp15"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7gbiv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b10um"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p53s2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4n2xi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xjdnq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0vugx"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_gcwwy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1155.0
+offset_bottom = 650.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_bbyq6")
+
+[node name="pausa" type="Sprite2D" parent="Control"]
+position = Vector2(-1, -198)
+scale = Vector2(0.321591, 0.321591)
+texture = ExtResource("2_6xgry")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = -112.0
+offset_top = -50.0
+offset_right = 114.0
+offset_bottom = 143.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Continuar" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_541fu")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ntp70")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bbyq6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6xgry")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_541fu")
+text = "Continuar
+"
+
+[node name="LineaSeleccion" type="ColorRect" parent="Control/VBoxContainer/Continuar"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -1.5
+offset_right = 88.0
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_541fu")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1kxdp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bjp15")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7gbiv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b10um")
+text = "Menu"
+
+[node name="LineaSeleccion" type="ColorRect" parent="Control/VBoxContainer/Menu"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -1.5
+offset_right = 44.0
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="salir" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_541fu")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p53s2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4n2xi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xjdnq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0vugx")
+text = "salir"
+
+[node name="LineaSeleccion" type="ColorRect" parent="Control/VBoxContainer/salir"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -1.5
+offset_right = 45.0
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+script = ExtResource("5_1kxdp")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 1447)
+
+[node name="test" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+
+[node name="algo" type="ColorRect" parent="ParallaxBackground/ParallaxLayer/test"]
+offset_left = 447.0
+offset_top = -4.0
+offset_right = 704.0
+offset_bottom = 1443.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/test"]
+position = Vector2(704, -14)
+scale = Vector2(0.4, 1)
+texture = ExtResource("5_ntp70")
+centered = false
+
+[node name="Bg2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/test"]
+position = Vector2(294, -11)
+scale = Vector2(0.4, 1)
+texture = ExtResource("5_ntp70")
+centered = false
+flip_h = true
+
+[connection signal="pressed" from="Control/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
