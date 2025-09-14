@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dejjb57clxriy"]
+
+[ext_resource type="PackedScene" uid="uid://b5tm1c43ol88c" path="res://Escenas/Player/Player.tscn" id="1_uahsp"]
+[ext_resource type="PackedScene" uid="uid://frq4cat6eotk" path="res://Escenas/Sin_nombre.fbx" id="2_d1ytv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_d1ytv"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_m32vk"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m32vk"]
+size = Vector3(135.454, 1, 115.533)
+
+[node name="test" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(14.3682, 0, 0, 0, 0.0867297, 0, 0, 0, 11.7723, 0, 0, 0)
+mesh = SubResource("BoxMesh_d1ytv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_m32vk")
+
+[node name="Player" parent="." instance=ExtResource("1_uahsp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.937786, 1.04336, 1.45386)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.176861, 0.984236, 0, -0.984236, 0.176861, 0, 3.189, 0)
+
+[node name="Sin_nombre" parent="." instance=ExtResource("2_d1ytv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5325, -1.15203, -19.3338)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sin_nombre"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04282, 0, 73.853)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sin_nombre/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9573, 1, -58.3395)
+shape = SubResource("BoxShape3D_m32vk")
