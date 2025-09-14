@@ -22,4 +22,4 @@ shape = SubResource("ConvexPolygonShape3D_m32vk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.937786, 1.04336, 1.45386)
 
 [node name="LightmapProbe" type="LightmapProbe" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02205, 3.7304, 1.31658)
+transform = Transform3D(1, 0, 0, 0, -0.850058, 0.526689, 0, -0.526689, -0.850058, -2.02205, 3.7304, 1.31658)
