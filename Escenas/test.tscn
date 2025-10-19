@@ -33,7 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.937786, 0.633642, 1.45386)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.176861, 0.984236, 0, -0.984236, 0.176861, 0, 3.189, 0)
 
-[node name="SinNombre" type="MeshInstance3D" parent="."]
+[node name="jerry" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.233765, 0, -2.83335, 0, 2.31622, 0, 2.8476, 0, 0.232595, -59.7128, 0.000503063, 1.36696)
 material_override = SubResource("StandardMaterial3D_6qqve")
 mesh = ExtResource("3_m32vk")

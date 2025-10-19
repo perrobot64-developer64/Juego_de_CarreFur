@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5tm1c43ol88c"]
+[gd_scene load_steps=9 format=3 uid="uid://b5tm1c43ol88c"]
 
 [ext_resource type="Script" uid="uid://cia3hyjutj0ki" path="res://Escenas/Player/player.gd" id="1_okrv5"]
+[ext_resource type="Texture2D" uid="uid://4oa0d5g4w45p" path="res://Assets/Models/man_t256.png" id="2_cnmht"]
 [ext_resource type="Shader" uid="uid://bhgksaeq17a3k" path="res://Assets/Shaders/piupiu_shader.gdshader" id="2_qk22e"]
 [ext_resource type="PackedScene" uid="uid://de7xi50jaqjsj" path="res://Escenas/menu de pausa/pause_menu.tscn" id="3_ek8r7"]
+[ext_resource type="ArrayMesh" uid="uid://iog6ewce4n7o" path="res://Assets/Models/man.obj" id="3_n3bmu"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_wllh4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_65x0r"]
+albedo_texture = ExtResource("2_cnmht")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_okrv5"]
 height = 3.73005
@@ -29,16 +32,18 @@ shader_parameter/viewport_size_override = Vector2(0, 0)
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_okrv5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00619507, 0.626944, -0.0494537)
-mesh = SubResource("CapsuleMesh_wllh4")
+[node name="body" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.8568735, 0, -0.041577883, 0, 2.31622, 0, 0.041787162, 0, -2.8425772, 0.09213424, -0.24860567, -0.16321802)
+material_override = SubResource("StandardMaterial3D_65x0r")
+mesh = ExtResource("3_n3bmu")
+skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50174, 0)
 shape = SubResource("CapsuleShape3D_okrv5")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.20829, -0.288248)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.095059335, 3.8956041, -0.4763475)
 
 [node name="HUD" type="CanvasLayer" parent="Camera3D"]
 
