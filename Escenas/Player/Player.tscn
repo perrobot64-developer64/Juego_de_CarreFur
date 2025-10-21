@@ -33,7 +33,7 @@ shader_parameter/viewport_size_override = Vector2(0, 0)
 script = ExtResource("1_okrv5")
 
 [node name="body" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.8568735, 0, -0.041577883, 0, 2.31622, 0, 0.041787162, 0, -2.8425772, 0.09213424, -0.24860567, -0.16321802)
+transform = Transform3D(-2.6117094, 0, -0.041525695, 0, 2.31622, 0, 0.038201176, 0, -2.8390093, 0.09213424, -0.24860567, -0.16321802)
 material_override = SubResource("StandardMaterial3D_65x0r")
 mesh = ExtResource("3_n3bmu")
 skeleton = NodePath("")

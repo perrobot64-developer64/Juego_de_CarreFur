@@ -17,7 +17,7 @@ transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_uvxy6")
 
 [node name="Player" parent="." instance=ExtResource("2_ytg78")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.964694, 4.2554884, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.528199, 0.81200266, 15)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.176861, 0.984236, 0, -0.984236, 0.176861, 0, 3.189, 0)
